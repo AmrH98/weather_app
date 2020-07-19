@@ -1,6 +1,25 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  background: url(img/cloud.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body{
-    background: #fffff8;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Karla", 'Cairo',"Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #676767;
+  overflow-x: hidden;
+  position: relative;
 }
 
 #app{
@@ -8,7 +27,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
+    /* background: #f23557; */
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
@@ -17,11 +36,69 @@ body{
 }
 
 .holder{
+  padding-bottom: 20px;
+  text-align: center;
 
 }
 
+input{
+    color: #f0d43a;
+    height: 60px;
+    width: 320px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.9;
+    border-radius: 20px;
+    background-color: transparent;
+    outline: none;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+}
+
+/* textarea */
+
+.space{
+  padding-left: 20px;
+}
+
+textarea{
+    background-color: transparent;
+    font-size: 20px;
+    display: block;
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.9;
+    border-radius: 20px;
+    color: #f0d43a;
+    outline: none;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+    padding: 3%;
+    padding-bottom: 20px;
+    border-color: grey;
+}
+
+
+#zip:focus {
+    height:50px;
+    font-size:20px;
+}
+
+
+.zip{
+  text-align: center;
+}
+
+/* entry  */
 .entry{
+    text-align: left;
+    display: block;
+    padding: 200px;
     background: rgba(59, 74, 107, .4);
+    position: relative;
+    border-radius: 30px;
+    
+
 }
 
 #entryHolder{
@@ -40,29 +117,20 @@ body{
 
 }
 
-.headline {
 
-}
-.title{
+/* button custom */
 
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
+#genereate{
+  display: block;
 }
 
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
+.contain-btn{
+  border-radius: 25px;
+  margin: 20px;
+  padding: 20px;
+  opacity: 0.8;
 }
+
 
 button{
     width: 400px;
@@ -74,16 +142,32 @@ button{
     border: none;
     box-shadow: 2px 4px 5px #444;
 }
+
+
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+    font-size: 27px;
+    margin: 10px;
+}
+
+footer{
+  color: grey;
+  font-size: 9px;
+  padding-top: 90px;
+  text-align: left;
+}
+#footer2{
+  text-align: right;
+
+}
+
 h1{
     font-size: 36px;
 }
 
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -108,4 +192,4 @@ button:focus {
     color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
+}
