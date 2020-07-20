@@ -93,11 +93,25 @@ textarea{
 .entry{
     text-align: left;
     display: block;
-    padding: 200px;
+    padding: 20%;
+    margin-top: 32%;
+    margin-bottom: 20%;
     background: rgba(59, 74, 107, .4);
     position: relative;
-    border-radius: 30px;
-    
+    border-radius: 7px;
+}
+
+.title{
+  text-align: center;
+  display: block;
+  margin-top: 50%;
+}
+
+@media only screen and (max-width:749px) {
+  .entry{
+    padding: 40px;
+    position: sticky;
+  }
 
 }
 
@@ -136,11 +150,22 @@ button{
     width: 400px;
     height: 100px;
     background: #3b4a6b;
+    cursor: pointer;
     color: #f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+}
+
+button:hover{
+  background-color: white;
+}
+
+.button:active{
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 
@@ -160,11 +185,6 @@ footer{
 }
 #footer2{
   text-align: right;
-
-}
-
-h1{
-    font-size: 36px;
 }
 
 
