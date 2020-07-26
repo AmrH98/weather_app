@@ -46,6 +46,6 @@ function addData(req, res){
 
 // Setup Server
 
-const port = 3005;
+const port = 3004;
 const server = app.listen(port, () =>
   console.log(`Server running on http://localhost:${port}`));
