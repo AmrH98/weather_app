@@ -19,14 +19,12 @@ function performAction() {
   console.log(feeling)
 
   // function to get inserted API Data
-  getData(baseURL, zipCode, key)
-//   .then((data))=> {
-//     const req = {
-//
-//     }
-//   }
-//
-}
+  const weather = getData(baseURL, zipCode, key);
+  let temp = weather.main.temp;
+  const data = {date: newDate, temp: temp, content: feeling}
+  await postData('/add', data)
+
+};
 
 
 // Function GET API data
@@ -41,6 +39,7 @@ const getData = async (baseURL, zipCode, key)=> {
   try{
     const parse = await response.json();
     console.log(parse)
+    console.log(parse.date)
     return parse
   }
   catch(error) {
@@ -49,5 +48,42 @@ const getData = async (baseURL, zipCode, key)=> {
 };
 
 // Function POST API data
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+const postData = async (url = '', data = {}) => {
+
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  try{
+    // const data = await response.json();
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+  catch (error){
+    console.log("Error POST Data", error);
+  }
+};
 
 //Function to UpdateUI
+
+const updateUI = async () => {
+  const request = await fetch("/all");
+  const data = request.json();
+  try {
+    // const data = await request.json();
+    document.getElementById('temp').innerHTML = data.temperature;
+    document.getElementById('date').innerHTML = data.date;
+    document.getElementById('content').innerHTML = data.user_response;
+  }
+  catch (error){
+    console.log("Error Updating UI", error);
+
+  }
+};

@@ -29,19 +29,21 @@ app.use(express.static('website'));
 app.get('/all', getData);
 
 function getData(req, res){
+  console.log("GET Request received")
   res.send(projectData);
 }
 
 // POST route that adds incoming data to projectData
 
-app.post('/addWD', addData);
+app.post('/add', addData);
 
 function addData(req, res){
-  projectData.temperature = request.body.temperature;
-  projectData.date = request.body.date;
-  projectData.user_response = request.body.user_response;
-  response.send(projectData);
+  projectData.temperature = req.body.temperature;
+  projectData.date = req.body.date;
+  projectData.user_response = req.body.user_response;
+  console.log("POST Request received");
   console.log(projectData);
+  res.send(projectData);
 }
 
 // Setup Server
