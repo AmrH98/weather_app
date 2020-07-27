@@ -13,17 +13,27 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction() {
 
-  const zipCode = document.getElementById('zip').value;
-  const feeling = document.getElementById('feelings').value;
-  console.log(zipCode)
-  console.log(feeling)
+  let zipCode = document.getElementById('zip').value;
+  let feeling = document.getElementById('feelings').value;
+  // console.log(zipCode)
+  // console.log(feeling)
 
   // function to get inserted API Data
-  const weather = getData(baseURL, zipCode, key);
-  let temp = weather.main.temp;
-  const data = {date: newDate, temp: temp, content: feeling}
-  await postData('/add', data)
-
+  getData(baseURL, zipCode, key)
+  // console.log(weather); //promise
+  .then(function(data){
+    postData('/add', {
+      city: data.name,
+      country: data.sys.country,
+      temperature: data.main.temp,
+      date: newDate,
+      user_response: feeling
+    })
+  }
+)
+  .then(function(data){
+    updateUI()
+  })
 };
 
 
@@ -34,13 +44,12 @@ const getData = async (baseURL, zipCode, key)=> {
   let currURL = (baseURL + zipCode + key);
   console.log(currURL)
   const response = await fetch(currURL)
-  console.log(response)
-
+  // console.log(response) // response info
   try{
     const parse = await response.json();
-    console.log(parse)
-    console.log(parse.date)
-    return parse
+    // console.log(parse) // weather information parsed JSON
+    // console.log(parse.name)
+    return parse // return information parsed by JSON
   }
   catch(error) {
       console.log('Error receiving API response')
@@ -63,7 +72,6 @@ const postData = async (url = '', data = {}) => {
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
   try{
-    // const data = await response.json();
     return response.json(); // parses JSON response into native JavaScript objects
   }
   catch (error){
@@ -75,15 +83,19 @@ const postData = async (url = '', data = {}) => {
 
 const updateUI = async () => {
   const request = await fetch("/all");
-  const data = request.json();
+  const data = await request.json();
   try {
     // const data = await request.json();
-    document.getElementById('temp').innerHTML = data.temperature;
-    document.getElementById('date').innerHTML = data.date;
-    document.getElementById('content').innerHTML = data.user_response;
+    console.log("debugg");
+    console.log(data);
+    document.getElementById('temp').innerHTML = `<p>Country: ${data.country}</p><p>City:
+    ${data.city}</p><p>Today's Temperature: ${data.temperature} F</p>`;
+    // document.getElementById('temp').innerHTML = `<p>City: ${data.city}</p>`;
+    // document.getElementById('temp').innerHTML = `<p>Today's Temperature: ${data.temperature}</p>`;
+    document.getElementById('date').innerHTML = `<p>Date: ${data.date}</p>`;
+    document.getElementById('content').innerHTML = `<p>Feeling: ${data.user_response}</p>`;
   }
   catch (error){
     console.log("Error Updating UI", error);
-
   }
 };

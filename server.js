@@ -38,6 +38,8 @@ function getData(req, res){
 app.post('/add', addData);
 
 function addData(req, res){
+  projectData.city = req.body.city;
+  projectData.country = req.body.country;
   projectData.temperature = req.body.temperature;
   projectData.date = req.body.date;
   projectData.user_response = req.body.user_response;
@@ -48,6 +50,6 @@ function addData(req, res){
 
 // Setup Server
 
-const port = 3004;
+const port = 3005;
 const server = app.listen(port, () =>
   console.log(`Server running on http://localhost:${port}`));

@@ -89,48 +89,52 @@ textarea{
   text-align: center;
 }
 
-/* entry  */
-.entry{
-    text-align: left;
-    display: block;
-    padding: 20%;
-    margin-top: 32%;
-    margin-bottom: 20%;
-    background: rgba(59, 74, 107, .4);
-    position: relative;
-    border-radius: 7px;
-}
-
 .title{
   text-align: center;
   display: block;
   margin-top: 50%;
 }
 
-@media only screen and (max-width:749px) {
-  .entry{
-    padding: 40px;
-    position: sticky;
+#entryHolder{
+  font-size: 90%;
+  text-align: left;
+  display: block;
+  padding: 2%;
+  margin-top: 32%;
+  /* margin-bottom: 20%; */
+  background: rgba(59, 74, 107, .4);
+  position: relative;
+  border-radius: 7px;
+  /* overflow: auto; */
+}
+
+@media only screen and (max-width:768px) {
+
+  .title{
+    text-align: center;
+    display: block;
+    margin-top: 1%;
   }
 
+  #entryHolder{
+    font-size: 90%;
+    text-align: left;
+    display: block;
+    padding: 2%;
+    margin-top: 0%;
+    /* margin-bottom: 20%; */
+    background: rgba(59, 74, 107, .4);
+    position: relative;
+    border-radius: 7px;
+    /* overflow: auto; */
+  }
+
+
+  .holder{
+    padding-bottom: 20px;
+    text-align: center;
+  }
 }
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
 
 /* button custom */
 
@@ -211,5 +215,4 @@ button:focus {
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #f0d43a;
     font-family: 'Oswald', sans-serif;
-
 }
