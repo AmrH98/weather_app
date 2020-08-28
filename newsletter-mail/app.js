@@ -34,10 +34,10 @@ app.post("/", function(req, res){
     }
   };
 
-  const url = "https://us4.api.mailchimp.com/3.0/lists/321057f07e"
+  const url = "https://us4.api.mailchimp.com/3.0/lists/...."
   const options = {
     method: "POST",
-    auth: "amrhafez:038dcf91961d26f68eb9680b7d7eded2-us17"
+    auth: "amrhafez:....."
   }
   var jsonData = JSON.stringify(data);
 
@@ -59,6 +59,3 @@ app.post("/", function(req, res){
 app.listen(3000 ,function(){
   console.log("Server running on port 3000");
 });
-
-// 038dcf91961d26f68eb9680b7d7eded2-us17
-// 321057f07e
