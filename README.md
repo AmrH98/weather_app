@@ -12,7 +12,7 @@
 - Used API <a href="https://openweathermap.org/api" target="_blank">**OpenWeatherMap**</a> to receive weather forecast data.
 
 ##ProtoType Image
-![ProtoType IMG](https://imgbb.com/jv73KLF)
+![ProtoType IMG](https://ibb.co/wR1LJdG)
 
 ## License
 
