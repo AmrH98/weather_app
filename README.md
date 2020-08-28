@@ -12,8 +12,7 @@
 - Used API <a href="https://openweathermap.org/api" target="_blank">**OpenWeatherMap**</a> to receive weather forecast data.
 
 ##ProtoType Image
-![ProtoType IMG](https://ibb.co/wR1LJdG)
-
+<a href="https://ibb.co/wR1LJdG"><img src="https://i.ibb.co/jTF5V80/ss.png" alt="ss" border="0" width="80" height="80"/></a>
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
